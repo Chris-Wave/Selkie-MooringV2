@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: MoorPy
+Version: 0.9.0
+Summary: A design-oriented mooring system library for Python
+Home-page: https://github.com/NREL/MoorPy
+Author: National Renewable Energy Laboratory
+Author-email: matthew.hall@nrel.gov
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: LGPL
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# MoorPy - Quasi-Static Mooring Analysis in Python
+
+MoorPy is a design-oriented mooring system library for Python based around a quasi-static modeling approach.
+
+### Prerequisites
+
+- Python 3
+- The following packages: NumPy, MatPlotLib, yaml, scipy
+
+### Installation
+
+For development use:
+
+run ```python setup.py develop``` or ```pip install -e .``` from the command line in the main MoorPy directory.
+
+For non-development use:
+
+run ```python setup.py``` or ```pip install .``` from the command line in the main MoorPy directory.
+
+
+### Documentation
+
+MoorPy's documentation website is under development at https://moorpy.readthedocs.io
+
+The MoorPy software can be cited as: 
+M. Hall, S. Housner, S. Sirnivas, and S. Wilson.
+*MoorPy: Quasi-Static Mooring Analysis in Python.*
+National Renewable Energy Laboratory, 2021.
+https://doi.org/10.11578/dc.20210726.1.
