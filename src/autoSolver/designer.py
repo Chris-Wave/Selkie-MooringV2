@@ -94,8 +94,8 @@ Badd[4,4]       = 400000000
 added_mass_infinite = np.zeros((6, 6)) 
 
 #provie individual values for 6 Degrees. 
-Tn_xx = 20
-Tn_yy = 20
+Tn_xx = 2
+Tn_yy = 2
 Tn_zz = 0
 Tn_xy = 0
 Tn_Rx = 0
@@ -107,8 +107,8 @@ Tn_limit = np.array([Tn_xx, Tn_yy, Tn_zz, Tn_Rx, Tn_Ry, Tn_Rz])
 #natural period limit. 
 #nemoh default file names goes in here. 
 floater         = {
-                    'Type' : "TEC", # WEC or TEC
-                    'Shape' : "Cyl", # Cyl or Box
+                    'Type' : "WEC", # WEC or TEC
+                    'Shape' : "Box", # Cyl or Box
                     'kwargs' :
                         {
                             #tec parameter
@@ -183,16 +183,16 @@ the two types.
 #as per the options available above  
                       #angle of the taut mooring line anchor
 moorType        = {
-                    'Type' : 'Cat', #Tau
+                    'Type' : 'Tau', #Tau
                     
                     'keyword args' : 
                        {
                            'stud' : 'studless',
                            'grade' : 'R3s',
-                           'moor_material' : 'chain', #or polyester for Tau, chain for Cat
-                            'rank_limit' : 62,
-                            'angle' : 2,
-                            'source' : 'Vrhof', #Vrhof for Cat and "BridonBekaert" for taut
+                           'moor_material' : 'polyester', #or polyester for Tau, chain for Cat
+                            'rank_limit' : 25,
+                            'angle' : 30,
+                            'source' : 'BridonBekaert', #Vrhof for Cat and "BridonBekaert" for taut
                        }
                    }
 

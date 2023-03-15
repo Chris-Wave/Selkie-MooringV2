@@ -18,8 +18,8 @@ from GDG_MoorPy import mooring_definition, solver
 from utilities import output, floatGeom
 
 # environment variables
-Hs              = 10                                             #m
-Tp              = 7                                            #s
+Hs              = 5                                             #m
+Tp              = 12                                            #s
 wind_vel        = 20                                            #m/s
 current_vel     = 2                                             #m/s
 depth           = 45                                            #m
@@ -78,6 +78,7 @@ will be processed and returned. The other properties can be ignored.
 # Additional damping matrix
 Badd            =np.zeros((6, 6))
 Badd[3,3]       = 10000000
+Badd[3,3]       = 10000000
 Badd[4,4]       = 400000000
 Badd[4,4]       = 400000000
 
@@ -95,8 +96,8 @@ Tn_limit = np.array([Tn_xx, Tn_yy, Tn_zz, Tn_Rx, Tn_Ry, Tn_Rz])
 
 #nemoh default file names goes in here. 
 floater         = {
-                    'Type' : "TEC", # WEC or TEC
-                    'Shape' : "Cyl", # Cyl or Box
+                    'Type' : "WEC", # WEC or TEC
+                    'Shape' : "Box", # Cyl or Box
                     'kwargs' :
                         {
                             
@@ -141,8 +142,8 @@ fair_draft       = 0                                               # m draft of 
 offset_limit_total  = 30                                            # m Total offset limit
 offset_limit_mean   = 20                                            # m Mean offset limit
 
-min_num_legs    = 1                                                 #number of mooring legs
-lines_per_leg   = 1                                                #number of lines in each leg 
+min_num_legs    = 3                                                #number of mooring legs
+lines_per_leg   = 1                                               #number of lines in each leg 
 angle_between_lines = 2
 SF_Moor         = 1.8                                              # NonDim #Tension
 SF_Offset       = 1                                                # NonDim #Offset
@@ -193,14 +194,14 @@ the two types.
 #as per the options available above  
                       #angle of the taut mooring line anchor
 anchor_radius_start = 300
-anchor_radius_end = 300
-anchor_radius_delta = 1
+anchor_radius_end = 320
+anchor_radius_delta = 5
 anchor_radii = np.arange(anchor_radius_start, anchor_radius_end + anchor_radius_delta,
                         anchor_radius_delta)
 
 line_length_start = 330
-line_length_end = 330
-line_length_delta = 1
+line_length_end = 340
+line_length_delta = 5
 line_lengths = np.arange(line_length_start, line_length_end + line_length_delta, 
                          line_length_delta)
 

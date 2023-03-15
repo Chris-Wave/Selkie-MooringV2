@@ -83,7 +83,7 @@ def LoadNEMOHV2(direc):
 
 def rao_calc(Hydro,WaveSpec):
     # RAO Calculation
-    imp =-1*Hydro['omega']**2*(Hydro['m']+Hydro['mA'])+ 1j*Hydro['omega']*(Hydro['B']+Hydro['Badd'])+Hydro['K_h']+Hydro['K_m']
+    imp =-1*Hydro['omega']**2*(Hydro['m']+Hydro['mA'])+ 1j*Hydro['omega']*(Hydro['B']+Hydro['Badd'])+Hydro['K_h']#+Hydro['K_m']
 
     rao= np.array([])
     for freqi in range (0, len(Hydro['omega'])):
@@ -105,7 +105,8 @@ def rao_calc(Hydro,WaveSpec):
     
     rao_WaveSS = rao_WaveS[~np.isnan(rao_WaveS[:,0])]
     rao_WaveSS_freq = WaveSpec['freq'][~np.isnan(rao_WaveS[:,0])]
-    #plt.plot(WaveSpec['freq'], rao_WaveS[:,0])
+    #plt.plot(WaveSpec['freq'], rao[:,0])
+    #plt.plot(Hydro['omega'][:,:,0], rao[:,0])
     
     Sig_dynamic_motion=  matrix = np.zeros((1,6))
     Max_dynamic_motion=  matrix = np.zeros((1,6))
