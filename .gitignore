@@ -131,5 +131,6 @@ dmypy.json
 .DS_Store
 Test/
 moorpy/
-
-
+*.pyc
+src/moorpy/moorpy/__pycache__/
+src/parametric/digitalTwin/data/
