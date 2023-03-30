@@ -11,6 +11,7 @@ Created on Wed Jan 19 14:05:21 2022
 import numpy as np
 import moorpy as mp
 from Selkie_Mooring_ver102 import *
+import os
 
 def getLinePropsFunSelkie(rank, type_, source, grade = False, stud = False, name=""):
     ''' 
@@ -23,7 +24,7 @@ def getLinePropsFunSelkie(rank, type_, source, grade = False, stud = False, name
     
     if source=="Vrhof":
         #VrhofTable.csv has added hearder names so need to change input format here.
-        Chain_Data = np.delete(np.genfromtxt(r'data/VrhofTable.csv', delimiter=','),0,0)
+        Chain_Data = np.delete(np.genfromtxt(os.path.abspath('../data/VrhofTable.csv'), delimiter=','),0,0)
         if type_=="chain":
             #dmm = Chain_Data[rank,0]*1000
             dmm = Chain_Data[rank,0]

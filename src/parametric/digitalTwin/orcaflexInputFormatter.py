@@ -41,4 +41,4 @@ for i in range(len(df)):
     df.loc[i, 'max offset'] = np.max(offset[:, i])
     df.loc[i, 'mean offset'] = np.mean(offset[:, i])
 
-df.to_csv('data/input.csv', index=False)
+df.to_csv('data/orcaflexFormatted.csv', index=False)

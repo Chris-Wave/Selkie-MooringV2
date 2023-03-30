@@ -504,4 +504,5 @@ def Moor_CreateV2(mooring, num_lines, rank, out_direc = None):
     return {'ms' : ms, 'Kbody_0' : Kbody_0, 'Kbody_mean_force' : Kbody_mean_force, 
     'Mean_offset' : Mean_offset, 'Max_zeroload_tensions' : Max_zeroload_tensions,
     'Max_meanload_tensions' : Max_meanload_tensions, 'line_length' : line_length,
-    'anc_radius' : anc_radius, 'Stiff' : Stiff}
+    'anc_radius' : anc_radius, 'Stiff' : Stiff, 'Mean tension':Max_meanload_tensions,
+    'Mean offset':Mean_offset}

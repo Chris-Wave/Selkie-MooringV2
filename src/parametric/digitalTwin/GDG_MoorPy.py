@@ -81,7 +81,7 @@ def solver(mooring, line_elements = 41, max_iteration = 200, plot_on = False, ou
     Results_Detail = {}
     
     
-# Loop to check if design is passing
+    # Loop to check if design is passing
 
     
     # Optimisation loops
@@ -100,7 +100,7 @@ def solver(mooring, line_elements = 41, max_iteration = 200, plot_on = False, ou
     mooring['Hydrodynamic_forces']['Badd'] = mooring['moorConfig']['Badd']
     mooring['Hydrodynamic_forces']['DOF'] = mooring['moorConfig']['DOF']
     
-    #Calculate RAOs
+   #Calculate RAOs
    #Calculate RAOs
     if mooring['Environment']['type']=='ISSC':
         WaveSpec = sm.ISSC_Create(mooring['Environment']['Hs'], 
@@ -222,11 +222,14 @@ def solver(mooring, line_elements = 41, max_iteration = 200, plot_on = False, ou
                  round(resolvedSystem['anc_radius'], 2),
                  max(Anchor_force_horz), max(Anchor_force_vert), Cost, 
                  Mean_offset_check, Max_offset_check, Max_dynamic_tensions_check,
-                 geometric_check, Period_check])
+                 geometric_check, Period_check,
+                 ])
 
     
     #the second output is for the last iteration only
     return (pd.DataFrame(data, 
             columns=['No. lines', 'diameter', 'Line length', 'Anchor Radius',
                      'Anc Horiz', 'Anc Vert', 'Cost', 'Mean offset', 
-                     'Max offset','Max tensions', 'Geometry', 'Natural Period']), resolvedSystem['ms'])
+                     'Max offset','Max tensions', 'Geometry', 'Natural Period',
+                     ]), resolvedSystem['ms'], Max_dynamic_tensions, Motion['max_offset'],
+            resolvedSystem['Mean offset'], resolvedSystem['Mean tension'])
