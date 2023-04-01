@@ -283,16 +283,16 @@ for i in range(len(seaStates)):
             output(output_folder, systemReturn, results, l, r, plot_on = True, window = True)
             Results = pd.concat([results, Results], ignore_index=True)
 
-            df.loc[i, 'max tension 1'] = max_tensions[0,0] 
-            df.loc[i, 'mean tension 1'] = mean_tension[0, 0]
+            df.loc[i, 'max tension 1'] = max_tensions[0,0] / 1000
+            df.loc[i, 'mean tension 1'] = mean_tension[0, 0] / 1000
             
-            df.loc[i, 'max tension 2'] = max_tensions[0,1]
-            df.loc[i, 'mean tension 2'] = mean_tension[0, 1]
+            df.loc[i, 'max tension 2'] = max_tensions[0,1]/ 1000
+            df.loc[i, 'mean tension 2'] = mean_tension[0, 1]/ 1000
             
-            df.loc[i, 'max tension 3'] = max_tensions[0,2]
-            df.loc[i, 'mean tension 3'] = mean_tension[0, 2]
+            df.loc[i, 'max tension 3'] = max_tensions[0,2]/ 1000
+            df.loc[i, 'mean tension 3'] = mean_tension[0, 2]/ 1000
             
             df.loc[i, 'max offset'] = max_offset[0]
             df.loc[i, 'mean offset'] = mean_offset[0]
 
-df.to_csv('data/selkie-result-formatter.csv', index=False)
+df.to_csv('data/selkie-formatted.csv', index=False)
