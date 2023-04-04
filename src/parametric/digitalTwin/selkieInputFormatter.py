@@ -18,11 +18,11 @@ from GDG_MoorPy import mooring_definition, solver
 from utilities import output, floatGeom
 
 seaStates = pd.read_excel('data/processing_barge_model_Results.xlsx', 'SeaStates')
-df = pd.DataFrame({'max tension 1':np.nan, 'mean tension 1':np.nan, 
-                   'max tension 2':np.nan, 'mean tension 2':np.nan, 
-                   'max tension 3':np.nan, 'mean tension 3':np.nan, 
-                   'max offset':np.nan, 
-                   'mean offset':np.nan, 
+df = pd.DataFrame({'max_tension_1':np.nan, 'mean_tension_1':np.nan, 
+                   'max_tension_2':np.nan, 'mean_tension_2':np.nan, 
+                   'max_tension_3':np.nan, 'mean_tension_3':np.nan, 
+                   'max_offset':np.nan, 
+                   'mean_offset':np.nan, 
                    'Hs':seaStates['Wave height (m)'], 
                    'Tp':seaStates['wave period (Tp)']})
 
@@ -283,16 +283,16 @@ for i in range(len(seaStates)):
             output(output_folder, systemReturn, results, l, r, plot_on = True, window = True)
             Results = pd.concat([results, Results], ignore_index=True)
 
-            df.loc[i, 'max tension 1'] = max_tensions[0,0] / 1000
-            df.loc[i, 'mean tension 1'] = mean_tension[0, 0] / 1000
+            df.loc[i, 'max_tension_1'] = max_tensions[0,0] / 1000
+            df.loc[i, 'mean_tension_1'] = mean_tension[0, 0] / 1000
             
-            df.loc[i, 'max tension 2'] = max_tensions[0,1]/ 1000
-            df.loc[i, 'mean tension 2'] = mean_tension[0, 1]/ 1000
+            df.loc[i, 'max_tension_2'] = max_tensions[0,1]/ 1000
+            df.loc[i, 'mean_tension_2'] = mean_tension[0, 1]/ 1000
             
-            df.loc[i, 'max tension 3'] = max_tensions[0,2]/ 1000
-            df.loc[i, 'mean tension 3'] = mean_tension[0, 2]/ 1000
+            df.loc[i, 'max_tension_3'] = max_tensions[0,2]/ 1000
+            df.loc[i, 'mean_tension_3'] = mean_tension[0, 2]/ 1000
             
-            df.loc[i, 'max offset'] = max_offset[0]
-            df.loc[i, 'mean offset'] = mean_offset[0]
+            df.loc[i, 'max_offset'] = max_offset[0]
+            df.loc[i, 'mean_offset'] = mean_offset[0]
 
 df.to_csv('data/selkie-formatted.csv', index=False)
