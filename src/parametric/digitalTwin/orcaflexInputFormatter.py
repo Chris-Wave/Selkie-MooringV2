@@ -20,25 +20,25 @@ offset = pd.read_excel('data/processing_barge_model_Results.xlsx', 'Resultsxy').
 offset = offset[:,::2]
 seaStates = pd.read_excel('data/processing_barge_model_Results.xlsx', 'SeaStates')
 
-df = pd.DataFrame({'max tension 1':np.nan, 'mean tension 1':np.nan, 
-                   'max tension 2':np.nan, 'mean tension 2':np.nan, 
-                   'max tension 3':np.nan, 'mean tension 3':np.nan, 
-                   'max offset':np.nan, 
-                   'mean offset':np.nan, 
+df = pd.DataFrame({'max_tension_1':np.nan, 'mean_tension_1':np.nan, 
+                   'max_tension_2':np.nan, 'mean_tension_2':np.nan, 
+                   'max_tension_3':np.nan, 'mean_tension_3':np.nan, 
+                   'max_offset':np.nan, 
+                   'mean_offset':np.nan, 
                    'Hs':seaStates['Wave height (m)'], 
                    'Tp':seaStates['wave period (Tp)']})
 
 for i in range(len(df)):
-    df.loc[i, 'max tension 1'] = np.max(line1[:, i])
-    df.loc[i, 'mean tension 1'] = np.mean(line1[:, i])
+    df.loc[i, 'max_tension_1'] = np.max(line1[:, i])
+    df.loc[i, 'mean_tension_1'] = np.mean(line1[:, i])
     
-    df.loc[i, 'max tension 2'] = np.max(line2[:, i])
-    df.loc[i, 'mean tension 2'] = np.mean(line2[:, i])
+    df.loc[i, 'max_tension_2'] = np.max(line2[:, i])
+    df.loc[i, 'mean_tension_2'] = np.mean(line2[:, i])
     
-    df.loc[i, 'max tension 3'] = np.max(line3[:, i])
-    df.loc[i, 'mean tension 3'] = np.mean(line3[:, i])
+    df.loc[i, 'max_tension_3'] = np.max(line3[:, i])
+    df.loc[i, 'mean_tension_3'] = np.mean(line3[:, i])
     
-    df.loc[i, 'max offset'] = np.max(offset[:, i])
-    df.loc[i, 'mean offset'] = np.mean(offset[:, i])
+    df.loc[i, 'max_offset'] = np.max(offset[:, i])
+    df.loc[i, 'mean_offset'] = np.mean(offset[:, i])
 
 df.to_csv('data/orcaflexFormatted.csv', index=False)
