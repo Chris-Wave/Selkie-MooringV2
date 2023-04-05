@@ -98,7 +98,7 @@ model_def = model_definition()['models']
 optim     = model_definition()['optimizers']
 #optim = ['adam']
 activationFunc = ['LeakyReLU']
-attempt = 'First' #quantifies the different tweaks made.
+attempt = 'Second' #quantifies the different tweaks made.
 
 #for activation in activationFunc:
 #    for o in optim:
@@ -112,9 +112,12 @@ for mod in model_def:
     #implementation via for loops
     for index, nodes in enumerate(n_nodes):
         if index == 0:
+            #change the alpha value for each attempt.
+            #change alpha in line 117 and line 121. alpha = slope
             l = layers.Dense(nodes, activation=tf.keras.layers.LeakyReLU(alpha=0.1))(merge)
         #if index == 0 or index == 1 or index == 3 or index == 5 or index == 7:
         if index == 0 or index == 1:
+            #edit the dropout for each attempt in the next line
             l = layers.Dropout(0.1)(l)
         l = layers.Dense(nodes, activation=tf.keras.layers.LeakyReLU(alpha=0.1),
                          kernel_regularizer=regularizers.L1L2(l1=1e-6, l2=1e-6),
